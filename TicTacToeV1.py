@@ -5,3 +5,4 @@ def gameShape(n):
     print("----------")
     print("- | - | -")
 gameShape(5)
+
