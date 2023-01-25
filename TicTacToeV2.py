@@ -1,12 +1,11 @@
 import os
 from Tab2 import check_beurt, check_for_win, draw_board;
-
 # Declare all the variables we're going to need
-vakje = {1 : '-', 2 : '-', 3: '-', 4 : '-', 5 : '-', 
-         6 : '-', 7 : '-',  8 : '-', 9 : '-'}
+vakje = {1 : '1', 2 : '2', 3: '3', 4 : '4', 5 : '5', 
+         6 : '6', 7 : '7',  8 : '8', 9 : '9'}
 spelen, complete = True, False
 beurt = 0
-prev_beurt = -1
+vorige_beurt = -1
 # Game Loop
 while spelen:
     # Reset het scherm
@@ -14,9 +13,9 @@ while spelen:
     # tekent het speelvakje
     draw_board(vakje)
     # Als de speler een verkeerde input geeft, laat dit het de speler weten
-    if prev_beurt == beurt:
+    if vorige_beurt == beurt:
       print("De input was ongeldig, probeer opnieuw")
-    prev_beurt = beurt
+    vorige_beurt = beurt
     print("Speler " + str((beurt % 2) +1 ) + " is aan de beurt. Kies een vakje of druk op s om te stoppen")
     
     keuze = input()
