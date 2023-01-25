@@ -10,17 +10,17 @@ def check_beurt(beurt):
   else: return 'X'
 
 def check_for_win(vakje):
-  # Handle Horizontal Cases
+  # horizontale mogelijkheden
   if   (vakje[1] == vakje[2] == vakje[3]) \
     or (vakje[4] == vakje[5] == vakje[6]) \
     or (vakje[7] == vakje[8] == vakje[9]):
     return True
-  # Handle Vertical Cases
+  # verticale mogelijkheden
   elif   (vakje[1] == vakje[4] == vakje[7]) \
     or (vakje[2] == vakje[5] == vakje[8]) \
     or (vakje[3] == vakje[6] == vakje[9]):
     return True
-  # Diagonal Cases
+  # Diagonale mogelijkheden
   elif (vakje[1] == vakje[5] == vakje[9]) \
     or (vakje[3] == vakje[5] == vakje[7]):
     return True
