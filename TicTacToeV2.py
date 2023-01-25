@@ -1,49 +1,48 @@
 import os
-from Tab2 import check_turn, check_for_win, draw_board
+from Tab2 import check_beurt, check_for_win, draw_board;
 
 # Declare all the variables we're going to need
-spots = {1 : '1', 2 : '2', 3: '3', 4 : '4', 5 : '5', 
-         6 : '6', 7 : '7',  8 : '8', 9 : '9'}
-playing, complete = True, False
-turn = 0
-prev_turn = -1
+vakje = {1 : '-', 2 : '-', 3: '-', 4 : '-', 5 : '-', 
+         6 : '-', 7 : '-',  8 : '-', 9 : '-'}
+spelen, complete = True, False
+beurt = 0
+prev_beurt = -1
 # Game Loop
-while playing:
-    # Reset the screen
+while spelen:
+    # Reset het scherm
     os.system('cls' if os.name == 'nt' else 'clear')
-    # Draw the current Game Board
-    draw_board(spots)
-    # If an invalid turn occurred, let the player know
-    if prev_turn == turn:
-      print("Invalid spot selected, please pick another.")
-    prev_turn = turn
-    print("Player " + str((turn % 2) +1 ) + "'s turn: Pick your spot or press q to quit")
+    # tekent het speelvakje
+    draw_board(vakje)
+    # Als de speler een verkeerde input geeft, laat dit het de speler weten
+    if prev_beurt == beurt:
+      print("De input was ongeldig, probeer opnieuw")
+    prev_beurt = beurt
+    print("Speler " + str((beurt % 2) +1 ) + " is aan de beurt. Kies een vakje of druk op s om te stoppen")
     
-    # Get input and make sure it's valid
-    choice = input()
-    # The game has ended, 
-    if choice == 'q':
-        playing = False
-    elif str.isdigit(choice) and int(choice) in spots:
-      # Check if the spot is already taken.
-      if not spots[int(choice)] in {"X", "O"}:
-        # If not, update board and increment the turn
-        turn += 1
-        spots[int(choice)] = check_turn(turn)
+    keuze = input()
+    # Het spel stopt
+    if keuze == 's':
+        spelen = False
+    elif str.isdigit(keuze) and int(keuze) in vakje:
+      # Checken of het vakje al is ingenomen
+      if not vakje[int(keuze)] in {"X", "O"}:
+        # Als het niet is, update het vakje
+        beurt += 1
+        vakje[int(keuze)] = check_beurt(beurt)
       
-    # Check if the game has ended (and if someone won)
-    if check_for_win(spots): playing, complete = False, True
-    if turn > 8: playing = False
+    # Checken of het spel is geëindigd if the game has ended (and if someone won)
+    if check_for_win(vakje): spelen, complete = False, True
+    if beurt > 8: spelen = False
     
 # Update the board one last time. 
 os.system('cls' if os.name == 'nt' else 'clear')
-draw_board(spots)
+draw_board(vakje)
 # If there was a winner, say who won
 if complete:
-  if check_turn(turn) == 'X': print("Player 1 Wins!")
-  else: print("Player 2 Wins!")
+  if check_beurt(beurt) == 'X': print("Speler 1 Wint!")
+  else: print("Speler 2 Wint!")
 else: 
-  # Tie Game
-  print("No Winner")
+  # Gelijkspel
+  print("Geen winnaar")
   
-print("Thanks for playing!") 
+print("Bedankt voor het spelen") 

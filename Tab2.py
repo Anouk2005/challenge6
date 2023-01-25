@@ -1,28 +1,28 @@
-def draw_board(spots):
-  board = (f"|{spots[1]}|{spots[2]}|{spots[3]}|\n"
-             f"|{spots[4]}|{spots[5]}|{spots[6]}|\n"
-             f"|{spots[7]}|{spots[8]}|{spots[9]}|")
+def draw_board(vakje):
+  board = (f"{vakje[7]}|{vakje[8]}|{vakje[9]}\n"
+             f"{vakje[4]}|{vakje[5]}|{vakje[6]}\n"
+             f"{vakje[1]}|{vakje[2]}|{vakje[3]}")
   print(board)
 
 
-def check_turn(turn):
-  if turn % 2 == 0: return 'O'
+def check_beurt(beurt):
+  if beurt % 2 == 0: return 'O'
   else: return 'X'
 
-def check_for_win(dict):
+def check_for_win(vakje):
   # Handle Horizontal Cases
-  if   (spots[1] == spots[2] == spots[3]) \
-    or (spots[4] == spots[5] == spots[6]) \
-    or (spots[7] == spots[8] == spots[9]):
+  if   (vakje[1] == vakje[2] == vakje[3]) \
+    or (vakje[4] == vakje[5] == vakje[6]) \
+    or (vakje[7] == vakje[8] == vakje[9]):
     return True
   # Handle Vertical Cases
-  elif   (spots[1] == spots[4] == spots[7]) \
-    or (spots[2] == spots[5] == spots[8]) \
-    or (spots[3] == spots[6] == spots[9]):
+  elif   (vakje[1] == vakje[4] == vakje[7]) \
+    or (vakje[2] == vakje[5] == vakje[8]) \
+    or (vakje[3] == vakje[6] == vakje[9]):
     return True
   # Diagonal Cases
-  elif (spots[1] == spots[5] == spots[9]) \
-    or (spots[3] == spots[5] == spots[7]):
+  elif (vakje[1] == vakje[5] == vakje[9]) \
+    or (vakje[3] == vakje[5] == vakje[7]):
     return True
     
   else: return False
