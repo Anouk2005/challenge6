@@ -1,5 +1,5 @@
 import os
-from Tab2 import check_turn, check_for_win, draw_board
+from helpers import check_turn, check_for_win, draw_board;
 
 # Declare all the variables we're going to need
 spots = {1 : '1', 2 : '2', 3: '3', 4 : '4', 5 : '5', 
