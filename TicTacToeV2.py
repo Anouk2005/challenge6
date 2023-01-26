@@ -29,7 +29,7 @@ while spelen:
         beurt += 1
         vakje[int(keuze)] = check_beurt(beurt)
       
-    # Checken of het spel is geëindigd if the game has ended (and if someone won)
+    # Checken of het spel is geëindigd if the game has ended (en als iemand heeft gewonnen)
     if check_for_win(vakje): spelen, complete = False, True
     if beurt > 8: spelen = False
     
