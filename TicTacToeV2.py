@@ -1,6 +1,6 @@
 import os
 from Tab2 import check_beurt, check_for_win, draw_board;
-# Declare all the variables we're going to need
+# alle variables wat we nodig hebben
 vakje = {1 : '1', 2 : '2', 3: '3', 4 : '4', 5 : '5', 
          6 : '6', 7 : '7',  8 : '8', 9 : '9'}
 spelen, complete = True, False
@@ -33,10 +33,10 @@ while spelen:
     if check_for_win(vakje): spelen, complete = False, True
     if beurt > 8: spelen = False
     
-# Update the board one last time. 
+# Update het board nog 1 keer 
 os.system('cls' if os.name == 'nt' else 'clear')
 draw_board(vakje)
-# If there was a winner, say who won
+# als er iemand gewonnen heeft,laat het zien
 if complete:
   if check_beurt(beurt) == 'X': print("Speler 1 Wint!")
   else: print("Speler 2 Wint!")
